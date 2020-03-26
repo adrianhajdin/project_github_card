@@ -1,133 +1,48 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700,600');
 
-$titillium : 'Titillium Web', sans-serif;
-$primary-color: #1a4e8e;
-$gray: #ecf0f1;
-
-body {
-	background: $gray;
-	font-family: $titillium;
-	font-weight: 400;
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-* {
-	margin:0;
-	padding:0;
-	box-sizing: border-box;
-	
-    &:active, &:focus{
-    	border: 0;
-    	outline: 0;
-    }
+.container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-a {
-	text-decoration: none;
-	display: inline-block;
+input {
+  outline: 0;
+  width:100%; 
+  font: 1rem 'Titillium Web';
+  border: 0;
+  padding: 0.8rem;
+  background: #f5f5f5;
+  border-radius: 0.3rem;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: rgb(212, 208, 208) 2px 2px;
 }
 
-#card {
-	width:25rem;
-	margin:auto;
-	overflow:hidden;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translateX(-50%) translateY(-50%);
+button {
+  padding: 2% 5%;
+  background-color: #f5f5f5;
+  border-radius: 0.3rem;
+  outline: 0;
 }
 
-.search--box {
-	input[type='search'] {
-		width:100%; font:1rem $titillium;
-		color:$primary-color;
-		border:0;
-		padding:.75rem .9375rem .9375rem;
-		background:darken($gray, 2%);
-		border-radius:.3125rem .3125rem 0 0;
-		text-align: center;
-		box-sizing: border-box;
-	}
+input:first-of-type {
+  margin-bottom: 5px;
 }
 
-.notfound {
-	background: #fff;
-	padding:1.875rem;
-	text-align: center;
-
-	h2 {
-		font-size:2rem;
-		color:lighten($primary-color, 11%);
-		margin-bottom:.625rem;
-	}
-
-	p {
-		font-size:1rem;
-		color:darken($gray, 25%);
-	}
+h2 {
+  font-size:2rem;
 }
 
-.github--profile {
-	width:100%;
-
-	&__info{
-		background: #fff;
-		text-align: center;
-		padding:1.875rem .9375rem;
-
-		img {
-			width:6.25rem;
-			height:6.25rem;
-			border-radius:50%;
-			display: block;
-			box-shadow:0 0 .0625rem rgba(0,0,0,.5);
-		}
-
-		h2 a {
-			font-size:1.65rem;
-			color:lighten($primary-color, 11%);
-		}
-
-		h3{
-			font-size:1.1885rem;
-			color:darken($gray, 16%);
-		}
-	}
-
-	&__state {
-		background:$primary-color;
-		text-align: center;
-		padding:1.875rem .9375rem;
-		border-radius:0 0 .3125rem .3125rem;
-
-		ul {
-			direction:ltr;
-		}
-
-		li {
-			list-style: none;
-			display: inline-block;
-			margin-right:1rem;
-			
-			&:last-child {
-				margin-right:0;
-			}
-		}
-
-		a {
-			color:#fff;
-		}
-
-		i {
-			font-size:1.5rem;
-			font-weight:700;
-			font-style: normal;
-			display: block;
-		}
-
-		span {
-			font-size:.844rem;
-			letter-spacing:.0625rem;
-			color:lighten($primary-color, 17%);
-		}
-	}
+h2:first-of-type {
+  margin-bottom: 0;
 }
+

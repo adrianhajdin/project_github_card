@@ -1,53 +1,37 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
-import { Profile, SearchProfile } from './components';
+import './App.css';
 
-import './index.scss';
+const App = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
-const API = 'https://api.github.com/users';
+  const handleClick = (e) => {
+    setShowPassword(!showPassword);
 
-class App extends React.Component {
-  state = {
-    username: 'adrianhajdin',
-    name: '',
-    avatar: '',
-    location: '',
-    repos: '',
-    followers: '',
-    following: '',
-    homeUrl: '',
-    notFound: '',
-  }
-    
-  fetchProfile = async (username) => { 
-    const url = `${API}/${username}`;
-
-    try {
-      const { data: { login, name, avatar_url, location, public_repos, followers, following, html_url, message } } = await axios.get(url);
-      
-      this.setState({ username: login, name, avatar: avatar_url, location, repos: public_repos, followers, following, homeUrl: html_url, notFound: message });
-    } catch (error) {
-      console.log('Oops, an error has occured!');
-    }
+    e.preventDefault();
   }
 
-  componentDidMount() {
-    const { username } = this.state;
-
-    this.fetchProfile(username);
-  }
-
-  render() {
-    return (
-      <div>
-         <section id="card">
-           <SearchProfile fetchProfile={this.fetchProfile}/>
-           <Profile profile={this.state} />
-         </section>
-      </div>
-    )
-  }
+  return (
+    <div className="container">
+      <input
+        type="text"
+        value={username}
+        placeholder="Username"
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="password"
+        value={password}
+        placeholder="Password"
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <h2>{username}</h2>
+      <h2>{showPassword ? password : '*'.repeat(password.length)}</h2>
+      <button onClick={handleClick}>Show Password</button>
+    </div>
+  );
 }
 
 export default App;
